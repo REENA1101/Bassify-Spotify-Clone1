@@ -1,3 +1,14 @@
-import { createContext, useReducer, useContext } from "react";
+export const initialState = {
+    token : null,
+}
 
-export 
+
+const reducer  = (state, action)=>{
+    switch (action.type){
+        default :
+        return state;
+    }
+}
+
+
+export default reducer;
