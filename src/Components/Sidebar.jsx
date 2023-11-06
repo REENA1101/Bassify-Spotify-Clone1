@@ -57,7 +57,6 @@ const Container = styled.div`
             flex-direction : column;
             gap : 1rem;
             padding : 1rem;
-
             li{
                 display : flex;
                 gap : 1rem;
@@ -65,10 +64,7 @@ const Container = styled.div`
                 transition : 0.3s ease-in-out;
                 & : hover{
                     color : white;
-
                 }
             }
-         }
-
-    
+         }    
 `
