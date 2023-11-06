@@ -42,20 +42,19 @@ const Container = styled.div `
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        .input{
+        input{
           border: none;
-          height: 2rem;
+          height: 1rem;
           width: 100%;
-          &: focus{
+          &:focus{
             outline: none;
           }
         }
      }
-
      .avatar{
       background-color: black;
       padding: 0.3rem 0.4rem;
-      padding: 1rem;
+      padding: 0.5rem;
       border-radius: 2rem;
       display: flex;
       justify-content: center;
@@ -69,13 +68,11 @@ const Container = styled.div `
         color: white;
         font-weight: bold;
         svg{
-          font-size: 1.3rem;
+          font-size: 1rem;
           background-color: #282828;
-          padding: 0.2rem;
+          padding: 0.1rem;
           border-radius: 1rem;
           color: #c7c5c5;
-          
-
         }
       }
      }
