@@ -31,9 +31,7 @@ export default function Playlists() {
       <ul>
         {
           playlists.map(({name, id})=>{
-            return (
-            <li key={id} >{name}</li>
-            )
+            return <li key={id} >{name}</li>
             })}
             </ul>
     </Container>
@@ -41,19 +39,29 @@ export default function Playlists() {
 }
 
 const Container = styled.div`
-ul{
-  list-style-type : none;
-  display : flex;
-  flex-direction : column;
-  gap : 1rem;
-  padding : 1rem;
-  li{
+  height: 100%;
+  overflow: hidden;
+    ul{
+      list-style-type : none;
       display : flex;
+      flex-direction : column;
       gap : 1rem;
-      cursor : pointer;
-      transition : 0.3s ease-in-out;
-      & : hover{
-          color : white;
+      height: 32vh;
+      max-height: 100%;
+      overflow: auto;
+      &::-webkit-scrollbar{
+          width: 0.7rem;
+          &-thumb{
+            background-color: rgba(255,255,255,0.6)
+          }
       }
-  }
+      li{
+          display : flex;
+          gap : 1rem;
+          cursor : pointer;
+          transition : 0.3s ease-in-out;
+          &:hover{
+              color : white;
+          }
+      }
 `
