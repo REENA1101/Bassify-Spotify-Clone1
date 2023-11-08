@@ -132,5 +132,38 @@ export default function Body() {
 }
 
 const Container = styled.div `
+.playlist{
+  margin: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+     .image{
+      img{
+        height: 15rem;
+        box-shadow: rgba(0,0,0,0.25) 0pc 25px 50px -12px;
+      } 
+     }
+     .details{
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      color: #e0dede;
 
+      .title{
+        color: white;
+        font-size: 4rem;
+      }
+     }
+   }
+
+.list{
+  .header__row{
+    display: grid;
+    grid-template-columns: 0.3fr 2fr 2fr 0.1fr;
+    color: #dddcdc; 
+    margin: 1rem 0 0 0;
+    position:sticky;
+    
+  }
+}
 `
