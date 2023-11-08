@@ -8,7 +8,7 @@ import { reducerCases } from "../utils/Constants";
 
 
 
-export default function Body() {
+export default function Body({headerBackground}) {
   const [{token, selectedPlaylistId, selectedPlaylist}, dispatch] = useStateProvider();
 
   useEffect(()=>{
@@ -46,11 +46,15 @@ export default function Body() {
 
         getInitialPlaylist();
   }, [token, dispatch, selectedPlaylistId]);
-
+    const msToMinutesAndSeconds = (ms)=>{
+       const minutes = Math.floor(ms/60000)
+       const seconds = ((ms%60000)/1000).toFixed(0);
+       return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+    }
 
 
   return (
-    <Container>
+    <Container headerBackground= {headerBackground}>
        {
         selectedPlaylist && (
           <>
@@ -104,16 +108,14 @@ export default function Body() {
                                       <span className= "name">{name}</span>
                                       <span>{artists}</span>
                                     </div>     
-                                    </div>
-
-                                   
+                                  </div>
 
                                     <div className= "col">
                                       <span>{album}</span>
                                     </div>
 
                                     <div className= "col">
-                                      <span>{duration}</span>
+                                      <span>{msToMinutesAndSeconds (duration)}</span>
                                     </div>
                                     
                                   </div>
@@ -139,7 +141,7 @@ const Container = styled.div `
      .image{
       img{
         height: 15rem;
-        box-shadow: rgba(0,0,0,0.25) 0pc 25px 50px -12px;
+        box-shadow: rgba(0,0,0,0.25) 0px 25px 50px -12px;
       } 
      }
      .details{
@@ -159,31 +161,33 @@ const Container = styled.div `
   .header__row{
     display: grid;
     grid-template-columns: 0.3fr 3fr 2fr 0.1fr;
-    color: #dddcdc; 
     margin: 1rem 0 0 0;
+    color: #dddcdc; 
     position:sticky;
-    top: 18vh;
+    top: 18.1vh;
     padding: 1rem 3rem;
     transition : 0.3s ease-in-out;
+    background-color: ${({headerBackground})=>headerBackground ? "#000000dc" : "none"};
   }
   .tracks{
     margin: 0 2rem;
     display: flex;
     flex-direction: column;
     margin-bottom: 5rem;
-    .row{
+    .row {
       padding: 0.5rem 1rem;
       display: grid;
       grid-template-columns: 0.3fr 3.1fr 2fr 0.1fr;
-      &:hover{
-        background-color: rgba(0, 0, 0, 0.7)
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.7);
       }
-      .col{
+      .col {
         display: flex;
         align-items: center;
         color: #dddcdc;
-        img{
+        img {
           height: 40px;
+          width: 40px;
         }
       }
       .detail{
@@ -195,7 +199,6 @@ const Container = styled.div `
           }
       }
     }
-
   }
 }
 `
