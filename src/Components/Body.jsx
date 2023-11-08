@@ -96,22 +96,25 @@ export default function Body() {
                                     </div>
 
                                     <div className= "col detail">
-                                      <div className="image"></div>
+                                      <div className="image">
                                       <img src={image} alt="track"/>
-                                    </div>
+                                      </div>
 
-                                    <div className= "info">
+                                      <div className= "info">
                                       <span className= "name">{name}</span>
                                       <span>{artists}</span>
+                                    </div>     
                                     </div>
 
-                                    {/* <div className= "col">
-                                      <span>{album}</span>
-                                    </div> */}
+                                   
 
-                                    {/* <div className= "col">
+                                    <div className= "col">
+                                      <span>{album}</span>
+                                    </div>
+
+                                    <div className= "col">
                                       <span>{duration}</span>
-                                    </div> */}
+                                    </div>
                                     
                                   </div>
                               )
@@ -172,8 +175,24 @@ const Container = styled.div `
       padding: 0.5rem 1rem;
       display: grid;
       grid-template-columns: 0.3fr 3.1fr 2fr 0.1fr;
-      &: hover{
+      &:hover{
         background-color: rgba(0, 0, 0, 0.7)
+      }
+      .col{
+        display: flex;
+        align-items: center;
+        color: #dddcdc;
+        img{
+          height: 40px;
+        }
+      }
+      .detail{
+          display: flex;
+          gap: 1rem;
+          .info{
+            display: flex;
+            flex-direction: column;
+          }
       }
     }
 
