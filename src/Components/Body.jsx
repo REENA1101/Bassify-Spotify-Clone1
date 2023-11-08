@@ -164,7 +164,7 @@ const Container = styled.div `
     margin: 1rem 0 0 0;
     color: #dddcdc; 
     position:sticky;
-    top: 18.1vh;
+    top: 17vh;
     padding: 1rem 3rem;
     transition : 0.3s ease-in-out;
     background-color: ${({headerBackground})=>headerBackground ? "#000000dc" : "none"};
