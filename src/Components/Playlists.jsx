@@ -32,7 +32,6 @@ export default function Playlists() {
 
   return (
     <Container>
-      
       <ul>
         {
           playlists && playlists.map(({ name, id }) => {
