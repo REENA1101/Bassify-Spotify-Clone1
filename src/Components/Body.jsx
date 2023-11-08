@@ -105,17 +105,13 @@ export default function Body() {
                                       <span>{artists}</span>
                                     </div>
 
-                                    <div className= "col">
+                                    {/* <div className= "col">
                                       <span>{album}</span>
-                                    </div>
+                                    </div> */}
 
-                                    <div className= "col">
-                                      <span>{album}</span>
-                                    </div>
-
-                                    <div className= "col">
+                                    {/* <div className= "col">
                                       <span>{duration}</span>
-                                    </div>
+                                    </div> */}
                                     
                                   </div>
                               )
@@ -159,11 +155,28 @@ const Container = styled.div `
 .list{
   .header__row{
     display: grid;
-    grid-template-columns: 0.3fr 2fr 2fr 0.1fr;
+    grid-template-columns: 0.3fr 3fr 2fr 0.1fr;
     color: #dddcdc; 
     margin: 1rem 0 0 0;
     position:sticky;
-    
+    top: 18vh;
+    padding: 1rem 3rem;
+    transition : 0.3s ease-in-out;
+  }
+  .tracks{
+    margin: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5rem;
+    .row{
+      padding: 0.5rem 1rem;
+      display: grid;
+      grid-template-columns: 0.3fr 3.1fr 2fr 0.1fr;
+      &: hover{
+        background-color: rgba(0, 0, 0, 0.7)
+      }
+    }
+
   }
 }
 `
