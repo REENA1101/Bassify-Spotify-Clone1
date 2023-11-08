@@ -39,7 +39,7 @@ export default function CurrentTrack() {
 
 
   return (
-    <div>
+    <Container>
         {
             currentlyPlaying && (
                 <div className = "track">
@@ -52,11 +52,28 @@ export default function CurrentTrack() {
                        <h6>{currentlyPlaying.artists.join(", ")}</h6>
                     </div>
                 </div>
-            )
-        }
-    </div>
+            )}
+    </Container>
   )
 }
 
 const Container = styled.div`
+.track{
+    display : flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 30px;
+    track__info{
+        display: flex;
+        flex-direction: column;
+         gap: 0.3rem;
+      h4{
+        color: white;
+     }
+     h6{
+    color: #b3b3b3;
+     }
+    }
+
+}
 `
