@@ -6,8 +6,7 @@ import { useStateProvider } from '../utils/StateProvider';
 
 export default function Navbar() {
   const [{userInfo}] = useStateProvider();
-  console.log(userInfo)
-
+  
   return (
     <Container>
         <div className= "search__bar">
@@ -54,7 +53,7 @@ const Container = styled.div `
      .avatar{
       background-color: black;
       padding: 0.3rem 0.4rem;
-      padding: 0.5rem;
+      padding-right: 1rem;
       border-radius: 2rem;
       display: flex;
       justify-content: center;
@@ -68,9 +67,9 @@ const Container = styled.div `
         color: white;
         font-weight: bold;
         svg{
-          font-size: 1rem;
+          font-size: 1.3rem;
           background-color: #282828;
-          padding: 0.1rem;
+          padding: 0.2rem;
           border-radius: 1rem;
           color: #c7c5c5;
         }

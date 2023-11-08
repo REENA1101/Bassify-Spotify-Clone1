@@ -17,21 +17,25 @@ export default function Playlists() {
             },
         }
     ); 
+   
     const {items} = response.data
+    
     const playlists = items.map(({name,id})=>{
       return {name,id}
     });
+   
     dispatch({type: reducerCases.SET_PLAYLISTS, playlists})
      }
      getPlaylistData()
        },[token, dispatch]);
+     
 
   return (
     <Container>
       
       <ul>
         {
-          playlists.map(({name, id})=>{
+          playlists && playlists.map(({ name, id }) => {
             return <li key={id} >{name}</li>
             })}
             </ul>
@@ -47,7 +51,7 @@ const Container = styled.div`
       display : flex;
       flex-direction : column;
       gap : 1rem;
-      height: 32vh;
+      height: 36vh;
       max-height: 100%;
       overflow: auto;
       &::-webkit-scrollbar{
