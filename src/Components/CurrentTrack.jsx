@@ -4,8 +4,8 @@ import { useStateProvider } from '../utils/StateProvider'
 import { useEffect } from 'react'
 import axios from 'axios'
 import { reducerCases } from '../utils/Constants'
-// import reducer from '../utils/reducer'
-// import { reducerCases } from '../utils/Constants'
+
+
 
 export default function CurrentTrack() {
     const [{token, currentlyPlaying}, dispatch] = useStateProvider()
@@ -29,11 +29,7 @@ export default function CurrentTrack() {
          }
          dispatch({type: reducerCases.SET_PLAYING, currentlyPlaying})
      }
-
-
-       console.log(response)
-       dispatch({type: reducerCases.SET_PLAYLISTS, currentlyPlaying})
-        };
+ };
         getCurrentTrack()
           },[token, dispatch]);
 
@@ -43,7 +39,7 @@ export default function CurrentTrack() {
         {
             currentlyPlaying && (
                 <div className = "track">
-                    <div classname= "track__image">
+                    <div className= "track__image">
                         <img src = {currentlyPlaying.image} alt = "currentlyPlaying"/>
                     </div>
 
@@ -61,11 +57,11 @@ const Container = styled.div`
 .track{
     display : flex;
     align-items: center;
-    gap: 0.8rem;
-    margin-bottom: 30px;
-    track__info{
-        display: flex;
-        flex-direction: column;
+    gap: 1rem;
+    
+    &__info{
+         display: flex;
+         flex-direction: column;
          gap: 0.3rem;
       h4{
         color: white;
