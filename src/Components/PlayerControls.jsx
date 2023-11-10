@@ -14,45 +14,39 @@ import {
 
 export default function PlayerControls() {
     const [{token, playerState}, dispatch] = useStateProvider()
-    const changeTrack = async (type) => {
-        try {
-          await axios.post(
-            `https://api.spotify.com/v1/me/player/${type}`,
-            {},
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-                "Content-Type": "application/json",
-              },
-            }
-          );
-      
-          const response = await axios.get(
-            "https://api.spotify.com/v1/me/player/currently-playing",
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-                "Content-Type": "application/json",
-              },
-            }
-          );
-      
-          if (response.data !== "") {
-            const { item } = response.data;
+
+    const changeTrack = async(type)=>{
+     await axios.post(`https://api.spotify.com/v1/me/player/${type}` ,
+     {},
+     {
+               headers:{
+                  Authorization : "Bearer"+ token,   
+                  "Content-Type" : "application/json",   
+               },
+           }
+        ); 
+    
+           const response = await axios.get('https://api.spotify.com/v1/me/player/currently-playing' , {
+               headers:{
+                   Authorization : "Bearer"+ token,
+                   "Content-Type" : "application/json"
+               },
+           }
+       ); 
+
+     if(response.data!==""){
+          const {item} = response.data
             const currentlyPlaying = {
-              id: item.id,
-              name: item.name,
-              artists: item.artists.map((artist) => artist.name),
-              image: item.album.images[2].url,
-            };
-            dispatch({ type: reducerCases.SET_PLAYING, currentlyPlaying });
-          } else {
-            dispatch({ type: reducerCases.SET_PLAYING, currentlyPlaying: null });
-          }
-        } catch (error) {
-          console.error("Error changing track:", error.response || error.message);
+             id: item.id,
+             name: item.name,
+             artists: item.artists.map((artist)=>artist.name),
+             image: item.album.images[2].url,
+         }
+         dispatch({type: reducerCases.SET_PLAYING, currentlyPlaying})
+        }else{
+            dispatch({type: reducerCases.SET_PLAYING, currentlyPlaying: null})
         }
-      };
+    }
 
   return (
      <Container>
