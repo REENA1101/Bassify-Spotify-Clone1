@@ -16,23 +16,16 @@ export default function PlayerControls() {
     const [{token, playerState}, dispatch] = useStateProvider()
 
     const changeTrack = async(type)=>{
-     await axios.post(`https://api.spotify.com/v1/me/player/${type}` ,
+     await axios.post(`https://api.spotify.com/v1/me/player/${type}`,
      {},
      {
-               headers:{
-                  Authorization : "Bearer"+ token,   
-                  "Content-Type" : "application/json",   
-               },
+        headers: {
+            Authorization: "Bearer " + token,
+            "Content-Type": "application/json",
+          },
            }
         ); 
     
-           const response = await axios.get('https://api.spotify.com/v1/me/player/currently-playing' , {
-               headers:{
-                   Authorization : "Bearer"+ token,
-                   "Content-Type" : "application/json"
-               },
-           }
-       ); 
 
      if(response.data!==""){
           const {item} = response.data
@@ -48,6 +41,22 @@ export default function PlayerControls() {
         }
     }
 
+    const changeState = async()=>{
+        const state = playerState ? "pause" : "play";
+
+        const response = await axios.put(`https://api.spotify.com/v1/me/player/${state}`,
+        {}, 
+        {
+            headers: {
+                Authorization: "Bearer " + token,
+                "Content-Type": "application/json",
+              },
+           }
+       ); 
+    }
+    dispatch({type: reducerCases.SET_PLAYER_STATE, 
+        playerState: !playerState})
+
   return (
      <Container>
        <div className= "shuffle">
@@ -59,7 +68,7 @@ export default function PlayerControls() {
        </div>
 
        <div className= "state">
-        {playerState ? <BsFillPlayCircleFill/> : <BsFillPauseCircleFill/>}
+        {playerState ? <BsFillPauseCircleFill onClick={changeState}/> : <BsFillPlayCircleFill onClick={changeState}/>}
        </div>
 
        <div className= "next">

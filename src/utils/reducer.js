@@ -8,7 +8,6 @@ export const initialState = {
     selectedPlaylist : null,
     currentlyPlaying : null,
     playerState: false,
-
 }
 
 const reducer  = (state, action)=>{
