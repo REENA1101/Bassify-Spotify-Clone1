@@ -26,21 +26,6 @@ export default function PlayerControls() {
            }
         ); 
     
-
-     if(response.data!==""){
-          const {item} = response.data
-            const currentlyPlaying = {
-             id: item.id,
-             name: item.name,
-             artists: item.artists.map((artist)=>artist.name),
-             image: item.album.images[2].url,
-         }
-         dispatch({type: reducerCases.SET_PLAYING, currentlyPlaying})
-        }else{
-            dispatch({type: reducerCases.SET_PLAYING, currentlyPlaying: null})
-        }
-    }
-
     const changeState = async()=>{
         const state = playerState ? "pause" : "play";
 
@@ -53,6 +38,19 @@ export default function PlayerControls() {
               },
            }
        ); 
+       if(response.data!==""){
+        const {item} = response.data
+          const currentlyPlaying = {
+           id: item.id,
+           name: item.name,
+           artists: item.artists.map((artist)=>artist.name),
+           image: item.album.images[2].url,
+       }
+       dispatch({type: reducerCases.SET_PLAYING, currentlyPlaying})
+      }else{
+          dispatch({type: reducerCases.SET_PLAYING, currentlyPlaying: null})
+      }
+  }
     }
     dispatch({type: reducerCases.SET_PLAYER_STATE, 
         playerState: !playerState})
