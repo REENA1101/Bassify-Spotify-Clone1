@@ -33,7 +33,7 @@ The apps UI:
 
 ![Screenshot 2024-08-24 184627](https://github.com/user-attachments/assets/382fa4f9-a53a-48ca-b486-6655a836c57f)
 
-Here's the working link for the Bassify App: https://tangerine-biscochitos-9522c0.netlify.app/
+Here's the working link for the Bassify App: ...coming soon
 Thanks for visiting, Happy coding...
 
 
